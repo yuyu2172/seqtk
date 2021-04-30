@@ -9,8 +9,11 @@ pip install seqtk
 
 ## Documentation
 
-### `seqtk.map(func: Callable[[S], T], sequence: Sequence[S])`
+### Mapping
 Return a mapping of a function over the sequence.
+
+#### Case1: Single sequence
+Signature: `seqtk.map(func: Callable[[S], T], sequence: Sequence[S])`
 
 Example:
 ```python
@@ -20,8 +23,25 @@ view = seqtk.map(lambda v: v + 1, arr)
 view[0]  # 2
 ```
 
-### `seqtk.gather(sequence: Sequence[T], indices: Sequence[int])`
+#### Case2: Multiple sequences
+Example (n=2):
+```python
+import seqtk
+from typing import Tuple
+
+def f(u: int, v: str) -> Tuple[int, str]:
+  return u, v
+
+arr0 = [1, 2, 3]
+arr1 = ["a", "b", "c"]
+view = seqtk.map(f, arr0, arr1)
+view[0]  # (1, "a")
+```
+
+### Gather
 Return a view on the sequence reordered by indices.
+
+Signature: `seqtk.gather(sequence: Sequence[T], indices: Sequence[int])`
 
 Example:
 ```python
@@ -31,8 +51,10 @@ view = seqtk.gather(arr, [2, 0])
 view[0]  # 3
 ```
 
-### `seqtk.concatenate(sequences: Sequence[Sequence[T]])`
+### Concatenate
 Return a view on the concatenated sequences.
+
+Signature: `seqtk.concatenate(sequences: Sequence[Sequence[T]])`
 
 Example:
 ```python
