@@ -2,6 +2,9 @@
 
 `seqtk` provides various tools for [`Sequence`](https://docs.python.org/3/library/collections.abc.html#collections.abc.Sequence).
 
+By using `seqtk`, you could declare data manipulation logic while deferring the actual data indexing.
+This could be useful for data loading pipleines of machine learning libraries such as PyTorch's `torch.utils.data`.
+
 ## Installation
 ```
 pip install seqtk
@@ -10,7 +13,7 @@ pip install seqtk
 ## Documentation
 
 ### Mapping
-Return a mapping of a function over the sequence.
+Returns a mapping of a function over the sequence.
 
 #### Case1: Single sequence
 Signature: `seqtk.map(func: Callable[[S], T], sequence: Sequence[S])`
@@ -39,7 +42,7 @@ view[0]  # (1, "a")
 ```
 
 ### Gather
-Return a view on the sequence reordered by indices.
+Returns a view on the sequence reordered by indices.
 
 Signature: `seqtk.gather(sequence: Sequence[T], indices: Sequence[int])`
 
@@ -52,7 +55,7 @@ view[0]  # 3
 ```
 
 ### Concatenate
-Return a view on the concatenated sequences.
+Returns a view on the concatenated sequences.
 
 Signature: `seqtk.concatenate(sequences: Sequence[Sequence[T]])`
 
