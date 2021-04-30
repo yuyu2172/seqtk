@@ -18,8 +18,8 @@ Signature: `seqtk.map(func: Callable[[S], T], sequence: Sequence[S])`
 Example:
 ```python
 import seqtk
-arr = [1, 2, 3]
-view = seqtk.map(lambda v: v + 1, arr)
+seq = [1, 2, 3]
+view = seqtk.map(lambda v: v + 1, seq)
 view[0]  # 2
 ```
 
@@ -32,9 +32,9 @@ from typing import Tuple
 def f(u: int, v: str) -> Tuple[int, str]:
   return u, v
 
-arr0 = [1, 2, 3]
-arr1 = ["a", "b", "c"]
-view = seqtk.map(f, arr0, arr1)
+seq0 = [1, 2, 3]
+seq1 = ["a", "b", "c"]
+view = seqtk.map(f, seq0, seq1)
 view[0]  # (1, "a")
 ```
 
@@ -46,8 +46,8 @@ Signature: `seqtk.gather(sequence: Sequence[T], indices: Sequence[int])`
 Example:
 ```python
 import seqtk
-arr = [1, 2, 3]
-view = seqtk.gather(arr, [2, 0])
+seq = [1, 2, 3]
+view = seqtk.gather(seq, [2, 0])
 view[0]  # 3
 ```
 
@@ -59,8 +59,8 @@ Signature: `seqtk.concatenate(sequences: Sequence[Sequence[T]])`
 Example:
 ```python
 import seqtk
-arr = [1, 2, 3]
-view = seqtk.concatenate([arr, arr])
+seq = [1, 2, 3]
+view = seqtk.concatenate([seq, seq])
 len(view)  # 6
 ```
 
