@@ -9,7 +9,7 @@ pip install seqtk
 
 ## Documentation
 
-### `seqtk.map`
+### `seqtk.map(func: Callable[[S], T], sequence: Sequence[S])`
 Return a mapping of a function over the sequence.
 
 Example:
@@ -20,8 +20,8 @@ view = seqtk.map(lambda v: v + 1, arr)
 view[0]  # 2
 ```
 
-### `seqtk.gather`
-Return a view on the sequence reordered by indexes.
+### `seqtk.gather(sequence: Sequence[T], indices: Sequence[int])`
+Return a view on the sequence reordered by indices.
 
 Example:
 ```python
@@ -31,7 +31,7 @@ view = seqtk.gather(arr, [2, 0])
 view[0]  # 3
 ```
 
-### `seqtk.concatenate`
+### `seqtk.concatenate(sequences: Sequence[Sequence[T]])`
 Return a view on the concatenated sequences.
 
 Example:
