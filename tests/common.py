@@ -26,8 +26,7 @@ class CustomSequence(Sequence[Value]):
                 raise IndexError
             return Value(i, text=str(i))
 
-        if isinstance(index, int):
-            return integer_to_value(index)
-
-        indices = list(range(index.stop))[index]
-        return [integer_to_value(i) for i in indices]
+        if isinstance(index, slice):
+            indices = list(range(index.stop))[index]
+            return [integer_to_value(i) for i in indices]
+        return integer_to_value(index)
