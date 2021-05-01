@@ -67,9 +67,11 @@ class map(Sequence[_S]):
         ...
 
     def __getitem__(self, index: Union[int, slice]) -> Any:
-        if isinstance(index, int):
-            return self._getitem_with_integer_index(index)
-        return [self._getitem_with_integer_index(i) for i in slice_to_indices(index)]
+        if isinstance(index, slice):
+            return [
+                self._getitem_with_integer_index(i) for i in slice_to_indices(index)
+            ]
+        return self._getitem_with_integer_index(index)
 
     def _getitem_with_integer_index(self, index: int) -> Any:
         args = [seq[index] for seq in self._sequences]
