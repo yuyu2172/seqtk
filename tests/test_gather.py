@@ -1,3 +1,4 @@
+import numpy as np
 import seqtk
 
 from .common import CustomSequence
@@ -11,3 +12,5 @@ def test_gather() -> None:
     assert new_seq[0] == seq[indices[0]]
     assert new_seq[1] == seq[indices[1]]
     list(new_seq)
+
+    new_seq[np.int64(1)]

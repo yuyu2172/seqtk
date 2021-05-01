@@ -33,9 +33,11 @@ class concatenate(Sequence[_T]):
         ...
 
     def __getitem__(self, index: Union[int, slice]) -> Union[_T, List[_T]]:
-        if isinstance(index, int):
-            return self._getitem_with_integer_index(index)
-        return [self._getitem_with_integer_index(i) for i in slice_to_indices(index)]
+        if isinstance(index, slice):
+            return [
+                self._getitem_with_integer_index(i) for i in slice_to_indices(index)
+            ]
+        return self._getitem_with_integer_index(index)
 
     def _getitem_with_integer_index(self, index: int) -> _T:
         seq_index = bisect.bisect_right(self._cumulative_sizes, index)

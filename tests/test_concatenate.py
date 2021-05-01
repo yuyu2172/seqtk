@@ -1,3 +1,4 @@
+import numpy as np
 import seqtk
 
 from .common import CustomSequence
@@ -13,3 +14,5 @@ def test_concatenate() -> None:
 
     s = slice(0, 3)
     assert new_seq[s] == seq[s]
+
+    new_seq[np.int64(1)]

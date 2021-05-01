@@ -20,6 +20,6 @@ class gather(Sequence[_T]):
         ...
 
     def __getitem__(self, index: Union[int, slice]) -> Union[_T, List[_T]]:
-        if isinstance(index, int):
-            return self._sequence[self._indices[index]]
-        return [self._sequence[i] for i in self._indices[index]]
+        if isinstance(index, slice):
+            return [self._sequence[i] for i in self._indices[index]]
+        return self._sequence[self._indices[index]]

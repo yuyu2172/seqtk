@@ -1,5 +1,6 @@
 from typing import Sequence, Tuple
 
+import numpy as np
 import pytest
 import seqtk
 
@@ -15,6 +16,8 @@ def test_map() -> None:
     new_seq = seqtk.map(func, seq)
     assert len(new_seq) == len(seq)
     list(new_seq)
+
+    new_seq[np.int64(1)]
 
     def sequence_consumer(seq: Sequence[float]) -> None:
         pass
