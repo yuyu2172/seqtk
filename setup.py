@@ -4,7 +4,7 @@ from setuptools import find_packages, setup
 
 setup(
     name="seqtk",
-    version="0.3.0",
+    version="0.4.0",
     description="seqtk provides various tools for Sequence.",
     author="Yusuke Niitani",
     author_email="",
